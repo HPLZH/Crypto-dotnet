@@ -118,7 +118,7 @@ public static class EnumerableExt
         }
     }
 
-    public static string ToSeqString(this IEnumerable<bool> x) => ToNumString(x, true);
+    public static string ToSeqString(this IEnumerable<bool> x) => ToNumString(x, false);
 
     public static string ToNumString(this IEnumerable<bool> x, bool? isLittleEndian = null)
     {
