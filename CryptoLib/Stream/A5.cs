@@ -26,8 +26,8 @@ public class A5 : IStreamCipher
     static A5()
     {
         AL1[18] = AL1[17] = AL1[16] = AL1[13] = true;
-        AL2[21] = AL2[20] = AL2[16] = AL2[12] = true;
-        AL3[22] = AL3[21] = AL3[18] = AL3[17] = true;
+        AL2[21] = AL2[20] = true;
+        AL3[22] = AL3[21] = AL3[20] = AL3[7] = true;
     }
 
     public A5(ulong key, int frame)
@@ -59,11 +59,11 @@ public class A5 : IStreamCipher
 
     public bool Next()
     {
-        int C1 = R1.CurArr[9] ? 1 : -1;
-        int C2 = R2.CurArr[11] ? 1 : -1;
-        int C3 = R3.CurArr[11] ? 1 : -1;
+        int C1 = R1.CurArr[8] ? 1 : -1;
+        int C2 = R2.CurArr[10] ? 1 : -1;
+        int C3 = R3.CurArr[10] ? 1 : -1;
         bool chk = C1 + C2 + C3 > 0;
-        return R1.Next2(chk, 9) ^ R2.Next2(chk, 11) ^ R3.Next2(chk, 11);
+        return R1.Next2(chk, 8) ^ R2.Next2(chk, 10) ^ R3.Next2(chk, 10);
     }
 
     public void Reset()
